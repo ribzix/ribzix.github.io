@@ -604,7 +604,7 @@ function calcMinMaxHeight(map) {
 }
 
 function updateInfopanel() {
-    let rhs = 17.28 / mapSize * 100;
+    let rhs = 4.32 / mapSize * 100;
      
     document.getElementById('rHeightscale').innerHTML = rhs.toFixed(1);
     document.getElementById('lng').innerHTML = grid.lng.toFixed(5);
@@ -673,7 +673,7 @@ function getHeightmap(mode = 0, callback) {
     // get the extent of the current map
     // in heightmap, each pixel is treated as vertex data, and 1081px represents 1080 faces
     // therefore, "1px = 16m" when the map size is 17.28km
-    let extent = getExtent(grid.lng, grid.lat, mapSize / 1080 * 1081);
+    let extent = getExtent(grid.lng, grid.lat, mapSize / 1080 * 270);
 
     // zoom is 13 in principle
     let zoom = 13;
@@ -894,7 +894,7 @@ async function getMapImage() {
 }
 
 function autoSettings(withMap = true) {
-    scope.mapSize = 17.28;
+    scope.mapSize = 4.32;
     scope.waterDepth = defaultWaterdepth;
 
     mapSize = scope.mapSize / 1;
