@@ -540,7 +540,7 @@ function togglePanel(index) {
 }
 
 function sanatizeMap(map, xOffset, yOffset) {
-    const citiesmapSize = 1081;
+    const citiesmapSize = 2048;
     let sanatizedMap = Create2DArray(citiesmapSize, 0);
 
     let lowestPositve = 100000;
@@ -570,7 +570,7 @@ function sanatizeMap(map, xOffset, yOffset) {
 }
 
 function sanatizeWatermap(map, xOffset, yOffset) {
-    const citiesmapSize = 1081;
+    const citiesmapSize = 2048;
     let watermap = Create2DArray(citiesmapSize, 0);
 
     for (let y = yOffset; y < yOffset + citiesmapSize; y++) {
@@ -671,9 +671,9 @@ function getHeightmap(mode = 0, callback) {
     saveSettings(false);
 
     // get the extent of the current map
-    // in heightmap, each pixel is treated as vertex data, and 1081 represents 270 faces
+    // in heightmap, each pixel is treated as vertex data, and 2048 represents 270 faces
     // therefore, "1px = 16m" when the map size is 17.28km
-    let extent = getExtent(grid.lng, grid.lat, mapSize / 270 * 1081);
+    let extent = getExtent(grid.lng, grid.lat, mapSize / 270 * 2048);
 
     // zoom is 13 in principle
     let zoom = 13;
@@ -799,7 +799,7 @@ function getHeightmap(mode = 0, callback) {
                     break;
                 case 1:
                     citiesmap = toCitiesmap(sanatizedMap, watermap);
-                    png = UPNG.encodeLL([citiesmap], 1081, 1081, 1, 0, 16);
+                    png = UPNG.encodeLL([citiesmap], 2048, 2048, 1, 0, 16);
                     download('heightmap.png', png);
                     break;
                 case 2:
@@ -807,7 +807,7 @@ function getHeightmap(mode = 0, callback) {
                     break;
                 case 3:
                     citiesmap = toCitiesmap(sanatizedMap, watermap);
-                    png = UPNG.encodeLL([citiesmap], 1081, 1081, 1, 0, 16);
+                    png = UPNG.encodeLL([citiesmap], 2048, 2048, 1, 0, 16);
                     downloadAsZip(png, 1);
                     break;
                 case 255:
@@ -1331,7 +1331,7 @@ function toTerrainRGB(heightmap) {
 }
 
 function toCitiesmap(heightmap, watermap) {
-    const citiesmapSize = 1081;
+    const citiesmapSize = 2048;
 
     // cities has L/H byte order
     let citiesmap = new Uint8ClampedArray(2 * citiesmapSize * citiesmapSize);
