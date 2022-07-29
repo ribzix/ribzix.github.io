@@ -1,4 +1,4 @@
-*This is a fork of original heightmap builder (JBerg60/cities-heightmap)*
+*This is a fork of a forked heightmap builder (sysoppl/Cities-Skylines-heightmap-generator)*
 # Roblox online heightmap generator
 Online heightmap generator for Roblox
 **Check it: https://ribzix.github.io**
